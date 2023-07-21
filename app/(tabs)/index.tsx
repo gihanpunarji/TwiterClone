@@ -1,20 +1,21 @@
-import { StyleSheet, Text, View } from "react-native";
+import { View, StyleSheet, FlatList } from "react-native";
+import Tweet from "../../components/Tweet";
 import tweets from "../../assets/data/tweets";
 
 export default function TabOneScreen() {
-  const tweet = tweets[0];
-
   return (
     <View style={styles.container}>
-      <Text>{tweet.content}</Text>
+      <FlatList
+        data={tweets}
+        renderItem={({ item }) => <Tweet tweet={item} />}
+      />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
+    backgroundColor: "white",
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
   },
 });
